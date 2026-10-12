@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EduLearn - plateforme de cours en ligne">
+  <title>EduLearn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="js/i18n.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body data-page="home" data-root="">
+
+  <header class="site-header" id="site-header"></header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <span class="pill" data-i18n="hero.badge">🚀 Nouvelle plateforme 2025/2026</span>
+          <h1 data-i18n="hero.title">Apprenez les compétences de demain, à votre rythme</h1>
+          <p data-i18n="hero.sub">Des cours structurés en informatique, programmation, données et intelligence artificielle, avec suivi de progression.</p>
+          <div class="hero-actions">
+            <a class="btn btn-lg" href="pages/courses.html" data-i18n="hero.cta1">Explorer les cours</a>
+            <a class="btn btn-lg btn-ghost" href="#categories" data-i18n="hero.cta2">Voir les matières</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="blob"></div>
+          <div class="float-card fc1">💻 <b>HTML & CSS</b></div>
+          <div class="float-card fc2">🐍 <b>Python</b></div>
+          <div class="float-card fc3">🤖 <b>IA</b></div>
+          <div class="float-card fc4">🗄️ <b>SQL</b></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS (remplies par JS) -->
+    <div class="container">
+      <div class="stats" id="stats"></div>
+    </div>
+
+    <!-- CONTINUER (rempli par JS) -->
+    <div class="container" id="continue"></div>
+
+    <!-- MATIERES -->
+    <section class="container section" id="categories">
+      <div class="section-head">
+        <h2 data-i18n="home.cats">Parcourir par matière</h2>
+      </div>
+      <div class="cat-grid" id="cat-grid"></div>
+    </section>
+
+    <!-- COURS POPULAIRES -->
+    <section class="container section">
+      <div class="section-head">
+        <h2 data-i18n="home.featured">Cours populaires</h2>
+        <a class="link" href="pages/courses.html" data-i18n="home.viewAll">Voir tout →</a>
+      </div>
+      <div class="grid" id="featured"></div>
+    </section>
+
+    <!-- POURQUOI -->
+    <section class="container section">
+      <div class="section-head"><h2 data-i18n="home.why">Pourquoi EduLearn ?</h2></div>
+      <div class="features">
+        <div class="feature">
+          <span aria-hidden="true">🎯</span>
+          <h3 data-i18n="f1.t">Apprentissage structuré</h3>
+          <p data-i18n="f1.d">Chaque cours est découpé en leçons courtes et progressives.</p>
+        </div>
+        <div class="feature">
+          <span aria-hidden="true">📈</span>
+          <h3 data-i18n="f2.t">Suivi de progression</h3>
+          <p data-i18n="f2.d">Visualisez votre avancement par cours et gardez la motivation.</p>
+        </div>
+        <div class="feature">
+          <span aria-hidden="true">🌍</span>
+          <h3 data-i18n="f3.t">Multilingue & accessible</h3>
+          <p data-i18n="f3.d">Interface en français, anglais et arabe, avec mode sombre.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+</body>
+</html>
