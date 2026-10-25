@@ -247,3 +247,109 @@ const COURSE_VIDEOS = {
   ml:      "i_LwzRVP7bg"    // Machine Learning for Everybody 
 };
 COURSES.forEach(c => { c.video = c.video || COURSE_VIDEOS[c.id]; });
+
+/* ===== QUIZ (un par cours) ===== */
+const Q = (q, options, answer, exp) => ({ q, options, answer, exp });
+
+const QUIZZES = {
+  html: [
+    Q(T("Quelle balise affiche une image ?", "Which tag displays an image?", "ما الوسم الذي يعرض صورة؟"),
+      ["<img>", "<image>", "<picture-src>", "<src>"], 0,
+      T("On utilise <img> avec les attributs src et alt.", "Use <img> with the src and alt attributes.", "نستعمل الوسم <img> مع الخاصيتين src وalt.")),
+    Q(T("À quoi sert l'attribut alt d'une image ?", "What is the alt attribute for?", "ما فائدة الخاصية alt في الصورة؟"),
+      [T("À l'accessibilité (texte alternatif)", "Accessibility (alternative text)", "إمكانية الوصول (نص بديل)"),
+       T("À changer la taille de l'image", "To resize the image", "لتغيير حجم الصورة"),
+       T("À ajouter un lien", "To add a link", "لإضافة رابط"),
+       T("À définir la couleur", "To set the colour", "لتحديد اللون")], 0,
+      T("Il décrit l'image aux lecteurs d'écran et s'affiche si l'image ne charge pas.", "It describes the image to screen readers and shows if the image fails to load.", "يصف الصورة لقارئات الشاشة ويظهر إذا تعذر تحميلها.")),
+    Q(T("Laquelle de ces balises est sémantique ?", "Which of these tags is semantic?", "أي من هذه الوسوم دلالي؟"),
+      ["<div>", "<span>", "<nav>", "<b>"], 2,
+      T("<nav> indique clairement une zone de navigation.", "<nav> clearly marks a navigation area.", "الوسم <nav> يحدد بوضوح منطقة التنقل."))
+  ],
+  css: [
+    Q(T("Quelle déclaration active Flexbox ?", "Which declaration enables Flexbox?", "أي تصريح يفعّل Flexbox؟"),
+      ["display: flex", "position: flex", "float: flex", "flex: container"], 0),
+    Q(T("Quel est l'ordre du modèle de boîte, de l'intérieur vers l'extérieur ?", "What is the box model order, from inside to outside?", "ما ترتيب نموذج الصندوق من الداخل إلى الخارج؟"),
+      ["content → padding → border → margin", "margin → border → padding → content", "padding → content → margin → border", "border → content → margin → padding"], 0),
+    Q(T("Quel sélecteur cible la classe « carte » ?", "Which selector targets the class “carte”?", "أي محدد يستهدف الصنف « carte »؟"),
+      ["#carte", ".carte", "carte", "*carte"], 1,
+      T("Le point (.) désigne une classe, le dièse (#) un identifiant.", "A dot (.) targets a class, a hash (#) targets an id.", "النقطة (.) للصنف والعلامة (#) للمعرّف."))
+  ],
+  js: [
+    Q(T("Quel mot-clé déclare une constante ?", "Which keyword declares a constant?", "أي كلمة مفتاحية تعرّف ثابتاً؟"),
+      ["const", "let", "var", "fixed"], 0),
+    Q(T("Quelle méthode attache un gestionnaire d'événement ?", "Which method attaches an event handler?", "أي دالة تربط معالج حدث؟"),
+      ["addEventListener", "attachClick", "listen", "onEvent"], 0),
+    Q(T("Quel est le résultat de typeof 21 ?", "What does typeof 21 return?", "ما نتيجة typeof 21 ؟"),
+      ['"number"', '"int"', '"string"', '"numeric"'], 0)
+  ],
+  python: [
+    Q(T("Comment Python délimite-t-il les blocs de code ?", "How does Python delimit code blocks?", "كيف تحدد بايثون كتل الشيفرة؟"),
+      [T("Par l'indentation", "With indentation", "بالإزاحة (Indentation)"),
+       T("Par des accolades { }", "With curly braces { }", "بالأقواس { }"),
+       T("Par des points-virgules", "With semicolons", "بالفاصلة المنقوطة"),
+       T("Par des parenthèses", "With parentheses", "بالأقواس ( )")], 0),
+    Q(T("Que renvoie len([\"a\", \"b\", \"c\"]) ?", "What does len([\"a\", \"b\", \"c\"]) return?", "ماذا تُرجع len([\"a\", \"b\", \"c\"]) ؟"),
+      ["3", "2", "4", "Error"], 0),
+    Q(T("Quel mot-clé définit une fonction ?", "Which keyword defines a function?", "أي كلمة مفتاحية تعرّف دالة؟"),
+      ["def", "function", "fun", "func"], 0)
+  ],
+  algo: [
+    Q(T("Quelle est la complexité de la recherche dichotomique ?", "What is the complexity of binary search?", "ما تعقيد البحث الثنائي؟"),
+      ["O(log n)", "O(n)", "O(n²)", "O(1)"], 0),
+    Q(T("Quelle condition est nécessaire pour la recherche dichotomique ?", "What does binary search require?", "ما الشرط اللازم للبحث الثنائي؟"),
+      [T("Le tableau doit être trié", "The array must be sorted", "يجب أن يكون الجدول مرتباً"),
+       T("Le tableau doit contenir des nombres pairs", "The array must contain even numbers", "يجب أن يحتوي على أعداد زوجية"),
+       T("Le tableau doit être vide", "The array must be empty", "يجب أن يكون فارغاً"),
+       T("Aucune condition", "No requirement", "لا يوجد شرط")], 0),
+    Q(T("Quel tri est en O(n log n) ?", "Which sort runs in O(n log n)?", "أي فرز تعقيده O(n log n)؟"),
+      [T("Tri fusion", "Merge sort", "الفرز بالدمج"),
+       T("Tri à bulles", "Bubble sort", "فرز الفقاعات"),
+       T("Tri par sélection", "Selection sort", "الفرز بالاختيار"),
+       T("Tri par insertion", "Insertion sort", "الفرز بالإدراج")], 0)
+  ],
+  sql: [
+    Q(T("Quelle clause filtre les lignes ?", "Which clause filters rows?", "أي عبارة تصفّي الصفوف؟"),
+      ["WHERE", "FILTER", "FROM", "ORDER BY"], 0),
+    Q(T("À quoi sert une clé primaire ?", "What is a primary key for?", "ما فائدة المفتاح الأساسي؟"),
+      [T("À identifier une ligne de façon unique", "To uniquely identify a row", "لتعريف الصف بشكل فريد"),
+       T("À trier les résultats", "To sort results", "لفرز النتائج"),
+       T("À supprimer une table", "To delete a table", "لحذف جدول"),
+       T("À crypter les données", "To encrypt data", "لتشفير البيانات")], 0),
+    Q(T("Que garde un INNER JOIN ?", "What does an INNER JOIN keep?", "ماذا يُبقي INNER JOIN؟"),
+      [T("Les lignes qui correspondent des deux côtés", "Rows that match on both sides", "الصفوف المتطابقة في الجدولين"),
+       T("Toutes les lignes de gauche", "All rows from the left table", "كل صفوف الجدول الأيسر"),
+       T("Toutes les lignes de droite", "All rows from the right table", "كل صفوف الجدول الأيمن"),
+       T("Aucune ligne", "No rows", "لا شيء")], 0)
+  ],
+  network: [
+    Q(T("Combien de couches compte le modèle OSI ?", "How many layers does the OSI model have?", "كم عدد طبقات نموذج OSI؟"),
+      ["7", "5", "4", "6"], 0),
+    Q(T("Quel est le rôle du DNS ?", "What is the role of DNS?", "ما دور DNS؟"),
+      [T("Traduire les noms de domaine en adresses IP", "Translate domain names into IP addresses", "تحويل أسماء النطاقات إلى عناوين IP"),
+       T("Chiffrer les échanges", "Encrypt traffic", "تشفير التبادلات"),
+       T("Attribuer des adresses MAC", "Assign MAC addresses", "منح عناوين MAC"),
+       T("Envoyer des e-mails", "Send e-mails", "إرسال البريد")], 0),
+    Q(T("Quel protocole offre un transport fiable ?", "Which protocol provides reliable transport?", "أي بروتوكول يوفر نقلاً موثوقاً؟"),
+      ["TCP", "UDP", "DNS", "ARP"], 0)
+  ],
+  ml: [
+    Q(T("Que nécessite l'apprentissage supervisé ?", "What does supervised learning need?", "ماذا يحتاج التعلم الخاضع للإشراف؟"),
+      [T("Des données étiquetées", "Labelled data", "بيانات موسومة"),
+       T("Aucune donnée", "No data", "لا بيانات"),
+       T("Uniquement des images", "Only images", "صوراً فقط"),
+       T("Un GPU obligatoirement", "A GPU, always", "معالج رسومي حتماً")], 0),
+    Q(T("Qu'est-ce que le surapprentissage (overfitting) ?", "What is overfitting?", "ما هو فرط التعلّم (overfitting)؟"),
+      [T("Le modèle apprend par cœur les données d'entraînement", "The model memorises the training data", "النموذج يحفظ بيانات التدريب"),
+       T("Le modèle est trop rapide", "The model is too fast", "النموذج سريع جداً"),
+       T("Le modèle n'a pas assez de données", "The model has too little data", "بيانات غير كافية"),
+       T("Le modèle ne démarre pas", "The model won't start", "النموذج لا يعمل")], 0,
+      T("Il obtient un bon score à l'entraînement mais généralise mal.", "It scores well on training data but generalises poorly.", "أداؤه جيد في التدريب لكنه ضعيف على بيانات جديدة.")),
+    Q(T("Laquelle de ces tâches est une classification ?", "Which of these tasks is classification?", "أي من هذه المهام تصنيف؟"),
+      [T("Prédire si un e-mail est un spam", "Predict whether an e-mail is spam", "توقع ما إذا كان البريد مزعجاً"),
+       T("Prédire le prix d'une maison", "Predict a house price", "توقع سعر منزل"),
+       T("Regrouper des clients similaires", "Group similar customers", "تجميع زبائن متشابهين"),
+       T("Compresser une image", "Compress an image", "ضغط صورة")], 0)
+  ]
+};
+COURSES.forEach(c => { c.quiz = QUIZZES[c.id] || []; });

@@ -467,3 +467,65 @@ img, video, iframe, svg { max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* ===== Liens de leçons (remplacent les boutons de la sidebar) ===== */
+.lesson-link{display:flex;align-items:center;gap:.6rem;padding:.55rem .7rem;border-radius:10px;color:inherit;text-decoration:none}
+.lesson-link:hover{background:rgba(127,127,127,.12)}
+.lesson-link.active{background:rgba(127,127,127,.18);font-weight:700}
+.lesson-link .num{display:inline-grid;place-items:center;min-width:1.7rem;height:1.7rem;border-radius:50%;background:rgba(127,127,127,.2);font-size:.8rem}
+.lesson-link.completed .num{background:#22c55e;color:#fff}
+.lesson-link:focus-visible{outline:3px solid var(--c1,#6366f1);outline-offset:2px}
+
+/* ===== Marqueurs de progression ===== */
+.markers{display:flex;gap:6px;margin:.5rem 0 1.25rem}
+.marker{flex:1;height:10px;border-radius:99px;background:rgba(127,127,127,.25);transition:background .2s}
+.marker.done{background:var(--c1,#6366f1)}
+.marker.current{outline:2px solid var(--c1,#6366f1);outline-offset:2px}
+.marker:hover{background:var(--c2,#8b5cf6)}
+
+/* ===== Quiz ===== */
+.side-quiz{display:flex;align-items:center;gap:.6rem;margin-top:1rem;padding:.75rem .9rem;border:2px dashed rgba(127,127,127,.5);border-radius:12px;color:inherit;text-decoration:none;font-weight:600}
+.side-quiz small{margin-inline-start:auto}
+.side-quiz:hover,.side-quiz.active{border-style:solid;border-color:var(--c1,#6366f1)}
+.quiz-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.quiz-q{margin:1.25rem 0 .5rem}
+.quiz-options{display:grid;gap:.75rem;margin:1rem 0}
+.quiz-opt{text-align:start;padding:.9rem 1.1rem;border:2px solid rgba(127,127,127,.3);border-radius:12px;background:transparent;color:inherit;font:inherit;cursor:pointer;transition:border-color .15s,background .15s}
+.quiz-opt:hover:not(:disabled){border-color:var(--c1,#6366f1)}
+.quiz-opt:focus-visible{outline:3px solid var(--c1,#6366f1);outline-offset:2px}
+.quiz-opt:disabled{cursor:default;color:inherit}
+.quiz-opt.correct{border-color:#22c55e;background:rgba(34,197,94,.15)}
+.quiz-opt.wrong{border-color:#ef4444;background:rgba(239,68,68,.15)}
+.quiz-feedback{min-height:1.6rem;margin-bottom:.5rem}
+.quiz-feedback.ok strong{color:#16a34a}
+.quiz-feedback.ko strong{color:#dc2626}
+.quiz-result{text-align:center;padding:1.5rem 0}
+.quiz-score{font-size:3.5rem;font-weight:800;line-height:1.1;margin:.5rem 0;color:var(--c1,#6366f1)}
+.quiz-result .lesson-actions{justify-content:center}
+
+/* ===== Administration ===== */
+.admin-grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));align-items:start}
+.admin-card{padding:1.25rem;border:1px solid rgba(127,127,127,.3);border-radius:16px}
+.admin-card h2{margin-top:0}
+.admin-form{display:grid;gap:.75rem}
+.admin-form label{display:grid;gap:.3rem;font-weight:600;font-size:.9rem}
+.admin-form input,.admin-form select,.admin-form textarea{width:100%;padding:.6rem .75rem;border:1px solid rgba(127,127,127,.4);border-radius:10px;background:transparent;color:inherit;font:inherit}
+.admin-form input:focus-visible,.admin-form select:focus-visible,.admin-form textarea:focus-visible{outline:3px solid #6366f1;outline-offset:1px}
+.admin-form select option{color:#111}
+.admin-row{display:grid;gap:.75rem;grid-template-columns:1fr 1fr}
+.form-error{color:#dc2626;font-weight:600;margin:0}
+.admin-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.admin-list li{display:flex;align-items:center;gap:.75rem;padding:.6rem;border:1px solid rgba(127,127,127,.25);border-radius:12px}
+.admin-ico{font-size:1.5rem}
+.admin-info{flex:1;display:grid;min-width:0}
+.tag-custom{padding:.05rem .45rem;border-radius:99px;background:rgba(99,102,241,.2);font-size:.75rem}
+.admin-actions{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+
+@media (prefers-reduced-motion: reduce){
+  .marker,.quiz-opt{transition:none}
+}
+.video-progress{margin:.6rem 0 1.2rem}
+.vbar{height:8px;border-radius:99px;background:rgba(127,127,127,.25);overflow:hidden}
+.vbar-fill{height:100%;width:0;background:var(--c1,#6366f1);transition:width .4s}
+.vbar-info{display:flex;justify-content:space-between;align-items:center;gap:.5rem;margin-top:.4rem;flex-wrap:wrap}
+@media (prefers-reduced-motion: reduce){.vbar-fill{transition:none}}

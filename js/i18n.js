@@ -24,7 +24,7 @@ const UI = {
     "course.novideo": "Vidéo à venir", "course.notfound": "Cours introuvable.",
      "course.openyt": "Ouvrir sur YouTube",
     "theme.toggle": "Changer le thème", "menu": "Menu",
-    "footer.rights": "© 2025/2026 EduLearn - ISSAT Sousse - Département Informatique "
+    "footer.rights": "© 2026/2027 EduLearn - ISSAT Sousse - Département Informatique "
   },
   en: {
     "nav.home": "Home", "nav.courses": "Courses",
@@ -51,7 +51,7 @@ const UI = {
     "course.novideo": "Video coming soon", "course.notfound": "Course not found.",
      "course.openyt": "Open on YouTube",
     "theme.toggle": "Toggle theme", "menu": "Menu",
-    "footer.rights": "© 2025/2026 EduLearn - ISSAT Sousse - Computer Science Dept. "
+    "footer.rights": "© 2026/2027 EduLearn - ISSAT Sousse - Computer Science Dept. "
   },
   ar: {
     "nav.home": "الرئيسية", "nav.courses": "الدورات",
@@ -78,11 +78,10 @@ const UI = {
     "course.novideo": "الفيديو قريباً", "course.notfound": "الدورة غير موجودة.",
     "course.openyt": "افتح على YouTube",
     "theme.toggle": "تغيير المظهر", "menu": "القائمة",
-    "footer.rights": "© 2025/2026 EduLearn - ISSAT سوسة - قسم الإعلامية "
+    "footer.rights": "© 2026/2027 EduLearn - ISSAT سوسة - قسم الإعلامية "
   }
 };
 
-/* ===== Moteur de traduction ===== */
 const I18N = {
   lang: localStorage.getItem("lms-lang") || "fr",
 
@@ -90,7 +89,6 @@ const I18N = {
     return (UI[I18N.lang] && UI[I18N.lang][key]) || UI.fr[key] || key;
   },
 
-  /* Choisit la bonne langue dans un objet {fr, en, ar} (repli sur le français) */
   pick(obj) {
     if (!obj) return "";
     if (typeof obj === "string") return obj;
@@ -116,3 +114,60 @@ const I18N = {
 };
 
 I18N.setDir();
+Object.assign(UI.fr, {
+  "nav.admin": "Administration",
+  "course.quiz": "Quiz",
+  "quiz.title": "Quiz", "quiz.question": "Question", "quiz.next": "Question suivante →", "quiz.finish": "Voir mon résultat",
+  "quiz.correct": "Bonne réponse !", "quiz.wrong": "Mauvaise réponse.", "quiz.score": "Score",
+  "quiz.best": "Meilleur score", "quiz.retry": "Recommencer", "quiz.backcourse": "Retour au cours",
+  "quiz.perfect": "Parfait, bravo !", "quiz.good": "Bien joué, continuez !", "quiz.again": "Revoyez le cours puis réessayez.",
+  "admin.title": "Administration des cours", "admin.sub": "Ajoutez ou supprimez des cours (interface simplifiée, données stockées dans le navigateur).",
+  "admin.add": "Ajouter un cours", "admin.list": "Cours existants", "admin.delete": "Supprimer",
+  "admin.restore": "Restaurer les cours supprimés", "admin.resetprogress": "Réinitialiser ma progression",
+  "admin.confirm": "Confirmer cette action ?", "admin.custom": "ajouté", "admin.questions": "questions",
+  "admin.f.title": "Titre du cours", "admin.f.desc": "Description", "admin.f.cat": "Matière", "admin.f.level": "Niveau",
+  "admin.f.hours": "Durée (heures)", "admin.f.icon": "Icône (emoji)", "admin.f.lessons": "Leçons (une par ligne)", "admin.f.quiz": "Quiz (une question par ligne)",
+  "admin.help.lessons": "Format : Titre | Contenu | ID vidéo YouTube (facultatif)",
+  "admin.help.quiz": "Format : Question | Réponse 1 ; Réponse 2 ; Réponse 3 | n° de la bonne réponse | Explication (facultatif)",
+  "admin.save": "Enregistrer le cours", "admin.saved": "✅ Enregistré",
+  "admin.invalid": "Un titre et au moins une leçon sont obligatoires."
+});
+Object.assign(UI.en, {
+  "nav.admin": "Admin",
+  "course.quiz": "Quiz",
+  "quiz.title": "Quiz", "quiz.question": "Question", "quiz.next": "Next question →", "quiz.finish": "See my result",
+  "quiz.correct": "Correct!", "quiz.wrong": "Wrong answer.", "quiz.score": "Score",
+  "quiz.best": "Best score", "quiz.retry": "Try again", "quiz.backcourse": "Back to course",
+  "quiz.perfect": "Perfect, well done!", "quiz.good": "Nice job, keep going!", "quiz.again": "Review the course and try again.",
+  "admin.title": "Course administration", "admin.sub": "Add or delete courses (simplified interface, data stored in the browser).",
+  "admin.add": "Add a course", "admin.list": "Existing courses", "admin.delete": "Delete",
+  "admin.restore": "Restore deleted courses", "admin.resetprogress": "Reset my progress",
+  "admin.confirm": "Confirm this action?", "admin.custom": "added", "admin.questions": "questions",
+  "admin.f.title": "Course title", "admin.f.desc": "Description", "admin.f.cat": "Subject", "admin.f.level": "Level",
+  "admin.f.hours": "Duration (hours)", "admin.f.icon": "Icon (emoji)", "admin.f.lessons": "Lessons (one per line)", "admin.f.quiz": "Quiz (one question per line)",
+  "admin.help.lessons": "Format: Title | Content | YouTube video ID (optional)",
+  "admin.help.quiz": "Format: Question | Answer 1 ; Answer 2 ; Answer 3 | number of the right answer | Explanation (optional)",
+  "admin.save": "Save course", "admin.saved": "✅ Saved",
+  "admin.invalid": "A title and at least one lesson are required."
+});
+Object.assign(UI.ar, {
+  "nav.admin": "الإدارة",
+  "course.quiz": "اختبار",
+  "quiz.title": "اختبار", "quiz.question": "السؤال", "quiz.next": "السؤال التالي ←", "quiz.finish": "عرض النتيجة",
+  "quiz.correct": "إجابة صحيحة!", "quiz.wrong": "إجابة خاطئة.", "quiz.score": "النتيجة",
+  "quiz.best": "أفضل نتيجة", "quiz.retry": "إعادة المحاولة", "quiz.backcourse": "العودة إلى الدورة",
+  "quiz.perfect": "ممتاز، أحسنت!", "quiz.good": "عمل جيد، واصل!", "quiz.again": "راجع الدورة ثم حاول مجدداً.",
+  "admin.title": "إدارة الدورات", "admin.sub": "أضف الدورات أو احذفها (واجهة مبسطة، البيانات مخزنة في المتصفح).",
+  "admin.add": "إضافة دورة", "admin.list": "الدورات الحالية", "admin.delete": "حذف",
+  "admin.restore": "استرجاع الدورات المحذوفة", "admin.resetprogress": "إعادة تعيين تقدمي",
+  "admin.confirm": "تأكيد هذا الإجراء؟", "admin.custom": "مضافة", "admin.questions": "أسئلة",
+  "admin.f.title": "عنوان الدورة", "admin.f.desc": "الوصف", "admin.f.cat": "المادة", "admin.f.level": "المستوى",
+  "admin.f.hours": "المدة (ساعات)", "admin.f.icon": "أيقونة (إيموجي)", "admin.f.lessons": "الدروس (درس في كل سطر)", "admin.f.quiz": "الاختبار (سؤال في كل سطر)",
+  "admin.help.lessons": "الصيغة: العنوان | المحتوى | معرّف فيديو YouTube (اختياري)",
+  "admin.help.quiz": "الصيغة: السؤال | إجابة 1 ; إجابة 2 ; إجابة 3 | رقم الإجابة الصحيحة | شرح (اختياري)",
+  "admin.save": "حفظ الدورة", "admin.saved": "✅ تم الحفظ",
+  "admin.invalid": "العنوان ودرس واحد على الأقل إلزاميان."
+});
+Object.assign(UI.fr, { "video.watched": "visionné", "video.resume": "Reprendre à", "video.auto": "Leçon validée automatiquement (90 % vue)" });
+Object.assign(UI.en, { "video.watched": "watched", "video.resume": "Resume at", "video.auto": "Lesson completed automatically (90% watched)" });
+Object.assign(UI.ar, { "video.watched": "تمت مشاهدته", "video.resume": "متابعة من", "video.auto": "تم إكمال الدرس تلقائياً (90٪ مشاهدة)" });
